@@ -1,7 +1,6 @@
 import java.lang.Math;
 
-public class Dice implements DiceInterface, Cloneable
-{
+public class Dice implements DiceInterface, Cloneable{
    private int sides;
    private int lastRoll;
    
@@ -9,8 +8,7 @@ public class Dice implements DiceInterface, Cloneable
     * Constructor creates die and sets sides to default dice size of 6.
     * @param NONE
     */
-   public Dice() 
-   {
+   public Dice(){
       this(6);
    }
    
@@ -19,14 +17,10 @@ public class Dice implements DiceInterface, Cloneable
     * set to default value of 6.
     * @param sides Number of sides die has
     */
-   public Dice(int sides) 
-   {
-      if(sides > 0)
-      {
+   public Dice(int sides){
+      if(sides > 0){
          this.sides = sides;
-      }
-      else 
-      {
+      }else{
          this.sides = 6;
       }
       
@@ -38,8 +32,7 @@ public class Dice implements DiceInterface, Cloneable
     * @param NONE
     * @return lastRoll Result of die roll
     */
-   public int roll() 
-   {
+   public int roll(){
       lastRoll = (int)( (Math.random() * sides) + 1);
       return lastRoll;
    }
@@ -51,12 +44,10 @@ public class Dice implements DiceInterface, Cloneable
     * @return sidesSet Result of setting the sides. If sides specified then value is set and true
     *                  is returned, if sides specified not valid, sides not set and false returned
     */
-   public boolean setSides(int sides) 
-   {
+   public boolean setSides(int sides){
       boolean sidesSet = false;
       
-      if(sides > 0) 
-      {
+      if(sides > 0){
          this.sides = sides;
          sidesSet = true;
       }
@@ -69,8 +60,7 @@ public class Dice implements DiceInterface, Cloneable
     * @param NONE
     * @return sides Number of sides die has
     */
-   public int getSides() 
-   {
+   public int getSides(){
       return sides;
    }
 
@@ -80,8 +70,7 @@ public class Dice implements DiceInterface, Cloneable
     * @param NONE
     * @return lastRoll Last roll die made
     */
-   public int getLastRoll() 
-   {
+   public int getLastRoll(){
       return lastRoll;
    }
    
@@ -90,8 +79,7 @@ public class Dice implements DiceInterface, Cloneable
     * @param NONE
     * @return String value of lastRoll
     */
-   public String toString() 
-   {
+   public String toString(){
       return String.valueOf(lastRoll);
    }
    
@@ -100,17 +88,12 @@ public class Dice implements DiceInterface, Cloneable
     * @param NONE
     * @return Copy of Dice object
     */
-   public Dice clone()
-   {
-      try 
-      {
+   public Dice clone(){
+      try {
          Dice copy = (Dice)super.clone();
          return copy;
-      }
-      catch(CloneNotSupportedException e)
-      {
+      }catch(CloneNotSupportedException e){
          return null; //shouldn't happen, keep compiler happy!
       }
-   }
-      
+   }   
 }
